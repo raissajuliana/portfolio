@@ -117,37 +117,58 @@
       },
     ];
 
+    // GALERIA
     const photoItems = [
       {
-        imageUrl: "./images/alunosdesmontandopc.jpeg",
+        type: "image",
+        url: "./images/alunosdesmontandopc.jpeg",
         label: "Alunos desmontando PC",
         alt: "Alunos aprendendo a desmontar computadores"
       },
       {
-        imageUrl: "./images/desmontagemdecelular.jpeg",
+        type: "image",
+        url: "./images/desmontagemdecelular.jpeg",
         label: "Desmontagem de celular",
         alt: "Aula prática de desmontagem de celular"
       },
       {
-        imageUrl: "./images/projetoarduino.jpeg",
+        type: "image",
+        url: "./images/projetoarduino.jpeg",
         label: "Projeto Arduino",
         alt: "Alunos desenvolvendo projeto com Arduino"
       },
       {
-        imageUrl: "./images/projetocarrinho.jpeg",
+        type: "image",
+        url: "./images/projetocarrinho.jpeg",
         label: "Projeto Carrinho",
         alt: "Projeto de carrinho robótico"
       },
       {
-        imageUrl: "./images/projetobracorobo.jpeg",
+        type: "image",
+        url: "./images/projetobracorobo.jpeg",
         label: "Braço Robótico",
         alt: "Projeto de braço robótico com Arduino"
       },
       {
-        imageUrl: "./images/placamae.jpeg",
+        type: "image",
+        url: "./images/placamae.jpeg",
         label: "Estudo de Hardware",
         alt: "Aula sobre componentes de hardware"
       },
+      {
+        type: "video",
+        url: "./videos/video1.mp4",
+        label: "Projeto com Arduino",
+        alt: "Projeto com arduino e motor de passo funcionando",
+        poster: "./images/motordepasso.jpg"
+      },
+      {
+        type: "video",
+        url: "./videos/video2.mp4",
+        label: "Projeto com Arduino, tela LCD e potênciometro",
+        alt: "Projeto com Arduino, controlando contraste com potênciometro da tela LCD",
+        poster: "./images/telalcd.jpg"
+      }
     ];
 
     const websites = [
@@ -199,6 +220,73 @@
       }
     ];
 
+    // FORMAÇÃO E CERTIFICADOS
+    const education = [
+      {
+        type: "diploma",
+        icon: "fa-solid fa-graduation-cap",
+        title: "Tecnologia em Jogos Digitais",
+        institution: "UNIARA - Universidade de Araraquara",
+        period: "2019 - 2022",
+        description: "Graduação tecnológica focada em desenvolvimento de jogos, programação, design e narrativas interativas.",
+        imageUrl: "./images/DIPLOMA.PNG"
+      },
+      {
+        type: "certificate",
+        icon: "fa-solid fa-certificate",
+        title: "Algoritmos e Lógica de Programação",
+        institution: "Udemy",
+        period: "2022",
+        description: "Fundamentos de lógica de programação, estruturas condicionais, laços de repetição, vetores e matrizes.",
+        imageUrl: "./images/Algoritmos.png"
+      },
+       {
+        type: "certificate",
+        icon: "fa-solid fa-gamepad",
+        title: "Programação para leigos e Informática do básico ao avançado",
+        institution: "Udemy",
+        period: "2022",
+        description: "Introdução à programação para iniciantes, abordando conceitos fundamentais como variáveis, tipos de dados, condicionais, loops e funções.",
+        imageUrl: "./images/programacao.png"
+      },
+      {
+        type: "certificate",
+        icon: "fa-solid fa-robot",
+        title: "Banco de Dados e SQL",
+        institution: "Udemy",
+        period: "2023",
+        description: "Modelagem de banco de dados relacional, linguagem SQL (consultas, joins, subqueries), normalização, criação de tabelas, views, stored procedures e fundamentos de SGBDs.",
+        imageUrl: "./images/BancoDeDados.png"
+      },
+      {
+        type: "certificate",
+        icon: "fa-solid fa-gamepad",
+        title: "C# Completo e POO",
+        institution: "Udemy",
+        period: "2022",
+        description: "Domínio da linguagem C#: programação orientada a objetos, classes, herança, polimorfismo, interfaces, generics, coleções, LINQ, manipulação de arquivos, tratamento de exceções e desenvolvimento de aplicações desktop e console.",
+        imageUrl: "./images/CSharpCompleto.png"
+      },
+      {
+        type: "certificate",
+        icon: "fa-solid fa-gamepad",
+        title: "Jogos 2D com Unity e C#",
+        institution: "Udemy",
+        period: "2022",
+        description: "Desenvolvimento de jogos 2D com Unity e C#, incluindo física, animações, lógica de gameplay e publicação de projetos.",
+        imageUrl: "./images/Jogos2D.png"
+      },
+      {
+        type: "certificate",
+        icon: "fa-solid fa-gamepad",
+        title: "Linux Completo",
+        institution: "Udemy",
+        period: "2023",
+        description: "Administração completa do Linux: terminal, shell script, gerenciamento de usuários, pacotes, rede e configuração de servidores.",
+        imageUrl: "./images/LinuxCompleto.png"
+      }
+    ];
+
     // ============================================================
     //  COMPONENTE REACT
     // ============================================================
@@ -207,7 +295,8 @@
         // HEADER
         React.createElement('div', { className: 'profile-header' },
           React.createElement('div', null,
-            React.createElement('h1', { className: 'gradient-text' }, 'Raíssa ', React.createElement('br'), 'Albino'),
+            // NOME 
+            React.createElement('h1', { className: 'profile-name' }, 'Raíssa ', React.createElement('br'), 'Albino'),
             React.createElement('div', { style: { display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginTop: '0.5rem' } },
               React.createElement('span', null,
                 React.createElement('i', { className: 'fas fa-map-pin', style: { color: '#b57edc' } }), ' ', profile.location
@@ -307,93 +396,166 @@
           )
         ),
 
-        // // GALERIA DE FOTOS
-        // React.createElement('div', { style: { marginTop: '3rem' } },
-        //   React.createElement('div', { className: 'section-title' },
-        //     React.createElement('i', { className: 'fas fa-camera' }), ' Galeria '
-        //   ),
-        //   React.createElement('div', { className: 'photo-grid' },
-        //     photoItems.map(function (item, i) {
-        //       return React.createElement('div', {
-        //         className: 'gallery-item',
-        //         key: i
-        //       },
-        //         React.createElement('img', {
-        //           src: item.imageUrl,
-        //           alt: item.alt,
-        //           style: {
-        //             width: '100%',
-        //             height: '100%',
-        //             objectFit: 'cover'
-        //           },
-        //           onError: function (e) {
-        //             var parent = e.target.parentElement;
-        //             e.target.style.display = 'none';
-        //             if (!parent.querySelector('.error-placeholder')) {
-        //               var errorDiv = document.createElement('div');
-        //               errorDiv.className = 'error-placeholder';
-        //               errorDiv.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;background:#1a1625;';
-        //               errorDiv.innerHTML = '<i class="fas fa-image" style="font-size:3rem;color:#b57edc;opacity:0.5;"></i>';
-        //               parent.appendChild(errorDiv);
-        //             }
-        //           }
-        //         }),
-        //         React.createElement('span', {
-        //           className: 'gallery-label'
-        //         }, item.label)
-        //       );
-        //     })
-        //   ),
-        //   React.createElement('p', {
-        //     style: {
-        //       marginTop: '1.5rem',
-        //       fontSize: '0.9rem',
-        //       color: '#a89bc0',
-        //       textAlign: 'center'
-        //     }
-        //   }, 'Momentos especiais das nossas aulas e projetos')
-        // ),
+        // FORMAÇÃO E CERTIFICADOS
+        React.createElement('div', { style: { marginTop: '3rem' } },
+          React.createElement('div', { className: 'section-title' },
+            React.createElement('i', { className: 'fas fa-award' }), ' Formação e Certificados'
+          ),
+          React.createElement('div', { className: 'education-grid' },
+            education.map(function (edu, idx) {
+              return React.createElement('div', { 
+                className: 'education-card',
+                key: idx,
+                onClick: function () {
+                  if (edu.imageUrl) {
+                    openImageModal(edu.imageUrl, edu.title);
+                  }
+                },
+                style: { cursor: edu.imageUrl ? 'pointer' : 'default' }
+              },
+                
+                React.createElement('div', { className: 'education-icon' },
+                  React.createElement('i', { className: edu.icon })
+                ),
+                
+                React.createElement('span', { 
+                  className: 'education-badge',
+                  style: {
+                    background: edu.type === 'diploma' 
+                      ? 'linear-gradient(135deg, #b57edc, #7c5cbf)' 
+                      : 'linear-gradient(135deg, #f39b7d, #e07b5a)'
+                  }
+                },
+                  edu.type === 'diploma' ? 'Diploma' : 'Certificado'
+                ),
+                
+                React.createElement('div', { className: 'education-info' },
+                  React.createElement('h3', null, edu.title),
+                  React.createElement('div', { className: 'education-institution' },
+                    React.createElement('i', { className: 'fas fa-building-columns' }),
+                    edu.institution
+                  ),
+                  React.createElement('div', { className: 'education-period' },
+                    React.createElement('i', { className: 'fas fa-calendar' }),
+                    edu.period
+                  ),
+                  React.createElement('p', null, edu.description)
+                ),
+                
+                edu.imageUrl ? React.createElement('div', { className: 'education-hint' },
+                  React.createElement('i', { className: 'fas fa-search-plus' }),
+                  ' Clique para ver o documento'
+                ) : null
+              );
+            })
+          )
+        ),
 
-        // GALERIA DE FOTOS COM ZOOM
+        // GALERIA 
         React.createElement('div', { style: { marginTop: '3rem' } },
           React.createElement('div', { className: 'section-title' },
             React.createElement('i', { className: 'fas fa-camera' }), ' Galeria '
           ),
           React.createElement('div', { className: 'photo-grid' },
             photoItems.map(function (item, i) {
+              const isVideo = item.type === 'video';
+              
               return React.createElement('div', {
                 className: 'gallery-item',
                 key: i,
                 onClick: function () {
-                  openPhotoModal(item.imageUrl, item.label);
+                  if (isVideo) {
+                    openVideoModal(item.url, item.label);
+                  } else {
+                    openPhotoModal(item.url, item.label);
+                  }
                 },
                 style: { cursor: 'pointer' }
               },
-                React.createElement('img', {
-                  src: item.imageUrl,
-                  alt: item.alt,
-                  style: {
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                  },
-                  onError: function (e) {
-                    var parent = e.target.parentElement;
-                    e.target.style.display = 'none';
-                    if (!parent.querySelector('.error-placeholder')) {
-                      var errorDiv = document.createElement('div');
-                      errorDiv.className = 'error-placeholder';
-                      errorDiv.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;background:#1a1625;';
-                      errorDiv.innerHTML = '<i class="fas fa-image" style="font-size:3rem;color:#b57edc;opacity:0.5;"></i>';
-                      parent.appendChild(errorDiv);
-                    }
-                  }
-                }),
-                // Overlay com ícone de lupa
+                
+                isVideo
+                  ? React.createElement('div', { style: { width: '100%', height: '100%', position: 'relative' } },
+                      React.createElement('video', {
+                        src: item.url,
+                        poster: item.poster || '',
+                        style: {
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover'
+                        },
+                        muted: true,
+                        loop: true,
+                        playsInline: true,
+                        onError: function (e) {
+                          var parent = e.target.parentElement.parentElement;
+                          e.target.style.display = 'none';
+                          if (!parent.querySelector('.error-placeholder')) {
+                            var errorDiv = document.createElement('div');
+                            errorDiv.className = 'error-placeholder';
+                            errorDiv.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;background:#1a1625;';
+                            errorDiv.innerHTML = '<i class="fas fa-video" style="font-size:3rem;color:#b57edc;opacity:0.5;"></i>';
+                            parent.appendChild(errorDiv);
+                          }
+                        }
+                      }),
+                      
+                      React.createElement('div', { 
+                        className: 'video-play-icon',
+                        style: {
+                          position: 'absolute',
+                          top: '50%',
+                          left: '50%',
+                          transform: 'translate(-50%, -50%)',
+                          background: 'rgba(181, 126, 220, 0.8)',
+                          width: '50px',
+                          height: '50px',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'white',
+                          fontSize: '1.2rem'
+                        }
+                      },
+                        React.createElement('i', { className: 'fas fa-play' })
+                      )
+                    )
+                  : React.createElement('img', {
+                      src: item.url,
+                      alt: item.alt,
+                      style: {
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      },
+                      onError: function (e) {
+                        var parent = e.target.parentElement;
+                        e.target.style.display = 'none';
+                        if (!parent.querySelector('.error-placeholder')) {
+                          var errorDiv = document.createElement('div');
+                          errorDiv.className = 'error-placeholder';
+                          errorDiv.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;background:#1a1625;';
+                          errorDiv.innerHTML = '<i class="fas fa-image" style="font-size:3rem;color:#b57edc;opacity:0.5;"></i>';
+                          parent.appendChild(errorDiv);
+                        }
+                      }
+                    }),
+                
+               
                 React.createElement('div', { className: 'gallery-overlay' },
-                  React.createElement('i', { className: 'fas fa-search-plus' }),
-                  React.createElement('span', null, 'Clique para ampliar')
+                  React.createElement('i', { 
+                    className: isVideo ? 'fas fa-play-circle' : 'fas fa-search-plus' 
+                  }),
+                  React.createElement('span', null, isVideo ? 'Clique para assistir' : 'Clique para ampliar')
                 ),
+                
+                
+                React.createElement('span', { className: 'media-type-badge' },
+                  React.createElement('i', { className: isVideo ? 'fas fa-video' : 'fas fa-camera' }),
+                  isVideo ? ' Vídeo' : ' Foto'
+                ),
+                
+                
                 React.createElement('span', {
                   className: 'gallery-label'
                 }, item.label)
@@ -407,7 +569,7 @@
               color: '#a89bc0',
               textAlign: 'center'
             }
-          }, 'Clique nas imagens para ampliar')
+          }, 'Momentos especiais das nossas aulas e projetos')
         ),
 
         // SITES
@@ -580,7 +742,7 @@
       );
     }
 
-    // Função para abrir modal com imagem ampliada
+    
     function openImageModal(imageUrl, alt) {
       var existingModal = document.querySelector('.admin-modal');
       if (existingModal) existingModal.remove();
@@ -609,17 +771,14 @@
       document.body.appendChild(modal);
     }
 
-    // Função para abrir modal de foto com zoom
+    
     function openPhotoModal(imageUrl, label) {
-      // Remove modal existente se houver
       var existingModal = document.querySelector('.photo-modal');
       if (existingModal) existingModal.remove();
 
-      // Criar modal
       var modal = document.createElement('div');
       modal.className = 'photo-modal active';
 
-      // Fechar ao clicar no fundo
       modal.onclick = function (e) {
         if (e.target === modal) {
           modal.classList.remove('active');
@@ -627,14 +786,12 @@
         }
       };
 
-      // Container do conteúdo
       var content = document.createElement('div');
       content.className = 'photo-modal-content';
       content.onclick = function (e) {
-        e.stopPropagation(); // Evita fechar ao clicar na imagem
+        e.stopPropagation();
       };
 
-      // Imagem ampliada
       var img = document.createElement('img');
       img.src = imageUrl;
       img.alt = label;
@@ -642,12 +799,10 @@
         img.src = 'https://via.placeholder.com/800x600/1a1625/b57edc?text=Imagem+não+encontrada';
       };
 
-      // Label da imagem
       var labelEl = document.createElement('div');
       labelEl.className = 'photo-modal-label';
       labelEl.textContent = label;
 
-      // Botão fechar
       var closeBtn = document.createElement('span');
       closeBtn.className = 'photo-modal-close';
       closeBtn.innerHTML = '&times;';
@@ -657,7 +812,6 @@
         setTimeout(function () { modal.remove(); }, 300);
       };
 
-      // Fechar com tecla ESC
       function handleEscKey(e) {
         if (e.key === 'Escape') {
           modal.classList.remove('active');
@@ -667,22 +821,81 @@
       }
       document.addEventListener('keydown', handleEscKey);
 
-      // Montar modal
       content.appendChild(img);
       content.appendChild(labelEl);
       modal.appendChild(closeBtn);
       modal.appendChild(content);
       document.body.appendChild(modal);
 
-      // Prevenir scroll do body
-      //document.body.style.overflow = 'hidden';
-
-      // Restaurar scroll quando fechar
       modal.addEventListener('transitionend', function () {
         if (!modal.classList.contains('active')) {
           document.body.style.overflow = '';
         }
       });
+    }
+
+    
+    function openVideoModal(videoUrl, label) {
+      var existingModal = document.querySelector('.video-modal');
+      if (existingModal) existingModal.remove();
+
+      var modal = document.createElement('div');
+      modal.className = 'video-modal active';
+
+      modal.onclick = function (e) {
+        if (e.target === modal) {
+          closeVideoModal(modal);
+        }
+      };
+
+      var content = document.createElement('div');
+      content.className = 'video-modal-content';
+      content.onclick = function (e) {
+        e.stopPropagation();
+      };
+
+      var video = document.createElement('video');
+      video.src = videoUrl;
+      video.controls = true;
+      video.autoplay = true;
+      video.style.cssText = 'max-width:90vw;max-height:80vh;border-radius:12px;box-shadow:0 20px 60px rgba(181,126,220,0.3);border:2px solid #382f4a;';
+
+      var labelEl = document.createElement('div');
+      labelEl.className = 'video-modal-label';
+      labelEl.textContent = label;
+
+      var closeBtn = document.createElement('span');
+      closeBtn.className = 'video-modal-close';
+      closeBtn.innerHTML = '&times;';
+      closeBtn.onclick = function (e) {
+        e.stopPropagation();
+        closeVideoModal(modal);
+      };
+
+      function handleEscKey(e) {
+        if (e.key === 'Escape') {
+          closeVideoModal(modal);
+          document.removeEventListener('keydown', handleEscKey);
+        }
+      }
+      document.addEventListener('keydown', handleEscKey);
+
+      content.appendChild(video);
+      content.appendChild(labelEl);
+      modal.appendChild(closeBtn);
+      modal.appendChild(content);
+      document.body.appendChild(modal);
+    }
+
+    function closeVideoModal(modal) {
+      modal.classList.remove('active');
+      
+      var video = modal.querySelector('video');
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
+      }
+      setTimeout(function () { modal.remove(); }, 300);
     }
 
     // ===== RENDERIZAR =====
