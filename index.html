@@ -77,43 +77,50 @@
         name: "Site Lanchonete",
         desc: "Site de uma lanchonete que vende hambúrguer artesanal.",
         link: "https://raissajuliana.github.io/hamburgueria/",
-        tech: ["HTML", "CSS", "JavaScript", "Desenvolvimento Front-End"]
+        tech: ["HTML", "CSS", "JavaScript", "Desenvolvimento Front-End"],
+        gif: "./gifs/gif1.gif"
       },
       {
         name: "Jogo A&D",
         desc: "Jogo 2D plataforma com Unity 2D e C#.",
         link: "https://devrn.itch.io/demo-aed",
-        tech: ["Unity", "C#", "Desenvolvimento de Jogos", "POO"]
+        tech: ["Unity", "C#", "Desenvolvimento de Jogos", "POO"],
+        gif: "./gifs/gif7.gif"
       },
       {
         name: "DrumHero",
         desc: "Jogo DrumHero, onde teclas do teclado representam uma parte da bateria.",
         link: "https://raissajuliana.github.io/DrumHero/",
-        tech: ["HTML", "CSS", "JavaScript", "Desenvolvimento Front-End"]
+        tech: ["HTML", "CSS", "JavaScript", "Desenvolvimento Front-End"],
+        gif: "./gifs/gif2.gif" 
       },
       {
         name: "Jogo Simon",
         desc: "O clássico jogo de memória desenvolvido com HTML, CSS e jQuery.",
         link: "https://raissajuliana.github.io/SimonGame/",
-        tech: ["HTML", "CSS", "JavaScript", "Jquery", "Desenvolvimento Front-End"]
+        tech: ["HTML", "CSS", "JavaScript", "Jquery", "Desenvolvimento Front-End"],
+        gif: "./gifs/gif3.gif" 
       },
       {
         name: "Jogo de Xadrez",
         desc: "Jogo de xadrez feito 100% apenas com C#, para ser jogado pelo CMD ou terminal.",
         link: "https://github.com/raissajuliana/Projeto-Xadrez",
-        tech: ["C#", "Desenvolvimento de Jogos", "POO"]
+        tech: ["C#", "Desenvolvimento de Jogos", "POO"],
+        gif: "./gifs/gif4.gif" 
       },
       {
         name: "Controle de Iluminação Inteligente com LDR e Arduino",
         desc: "Projeto que monitora a luz ambiente com um LDR e acende um LED automaticamente.",
         link: "https://github.com/raissajuliana/AutoLEDLDR",
-        tech: ["C++", "Eletrônica", "Arduino"]
+        tech: ["C++", "Eletrônica", "Arduino"],
+        gif: "./gifs/gif5.gif"
       },
-       {
+      {
         name: "Site Pet Love",
         desc: "Projeto front-end sobre um aplicativo chamado 'Pet Love'.",
         link: "https://raissajuliana.github.io/PetLove/",
-        tech: ["HTML", "CSS", "JavaScript", "Desenvolvimento Front-End"]
+        tech: ["HTML", "CSS", "JavaScript", "Desenvolvimento Front-End"],
+        gif: "./gifs/gif6.gif"
       },
     ];
 
@@ -158,7 +165,7 @@
       {
         type: "video",
         url: "./videos/video1.mp4",
-        label: "Projeto com Arduino",
+        label: "Projeto com Arduino e Motor de Passo",
         alt: "Projeto com arduino e motor de passo funcionando",
         poster: "./images/motordepasso.jpg"
       },
@@ -240,9 +247,9 @@
         description: "Fundamentos de lógica de programação, estruturas condicionais, laços de repetição, vetores e matrizes.",
         imageUrl: "./images/Algoritmos.png"
       },
-       {
+      {
         type: "certificate",
-        icon: "fa-solid fa-gamepad",
+        icon: "fa-solid fa-certificate",
         title: "Programação para leigos e Informática do básico ao avançado",
         institution: "Udemy",
         period: "2022",
@@ -251,7 +258,7 @@
       },
       {
         type: "certificate",
-        icon: "fa-solid fa-robot",
+        icon: "fa-solid fa-certificate",
         title: "Banco de Dados e SQL",
         institution: "Udemy",
         period: "2023",
@@ -260,7 +267,7 @@
       },
       {
         type: "certificate",
-        icon: "fa-solid fa-gamepad",
+        icon: "fa-solid fa-certificate",
         title: "C# Completo e POO",
         institution: "Udemy",
         period: "2022",
@@ -269,7 +276,7 @@
       },
       {
         type: "certificate",
-        icon: "fa-solid fa-gamepad",
+        icon: "fa-solid fa-certificate",
         title: "Jogos 2D com Unity e C#",
         institution: "Udemy",
         period: "2022",
@@ -278,7 +285,7 @@
       },
       {
         type: "certificate",
-        icon: "fa-solid fa-gamepad",
+        icon: "fa-solid fa-certificate",
         title: "Linux Completo",
         institution: "Udemy",
         period: "2023",
@@ -290,12 +297,12 @@
     // ============================================================
     //  COMPONENTE REACT
     // ============================================================
+
+    // HEADER
     function App() {
       return React.createElement('div', { className: 'app' },
-        // HEADER
         React.createElement('div', { className: 'profile-header' },
           React.createElement('div', null,
-            // NOME 
             React.createElement('h1', { className: 'profile-name' }, 'Raíssa ', React.createElement('br'), 'Albino'),
             React.createElement('div', { style: { display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginTop: '0.5rem' } },
               React.createElement('span', null,
@@ -374,6 +381,20 @@
           React.createElement('div', { className: 'grid-2col' },
             projects.map(function (p, idx) {
               return React.createElement('div', { className: 'card', key: idx },
+                
+                p.gif ? React.createElement('div', { className: 'project-gif-container' },
+                  React.createElement('img', {
+                    src: p.gif,
+                    alt: p.name + ' demo',
+                    className: 'project-gif',
+                    onError: function (e) {
+                      e.target.style.display = 'none';
+                    }
+                  })
+                ) : React.createElement('div', { className: 'project-gif-placeholder' },
+                  React.createElement('i', { className: 'fas fa-code', style: { fontSize: '2rem', color: '#b57edc', opacity: 0.5 } }),
+                  React.createElement('span', { style: { fontSize: '0.8rem', color: '#8a7fa0', marginTop: '0.5rem' } }, 'Demo em breve')
+                ),
                 React.createElement('h3', null, p.name),
                 React.createElement('p', { style: { marginBottom: '0.5rem' } }, p.desc),
                 React.createElement('div', { className: 'tag-group' },
